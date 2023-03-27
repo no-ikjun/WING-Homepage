@@ -1,0 +1,100 @@
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  height: 60px;
+  display: flex;
+}
+.navbar::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(3px);
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
+  transition: opacity 0.4s ease;
+}
+.nav_visible {
+  animation: showNav 0.5s;
+  display: flex;
+}
+.nav_unvisible {
+  transition: 0.5s;
+  opacity: 0;
+  animation: hideNav 0.5s;
+  height: 0;
+}
+@keyframes showNav {
+  0% {
+    height: 0px;
+    opacity: 0;
+  }
+  100% {
+    height: 60px;
+  }
+}
+@keyframes hideNav {
+  0% {
+    height: 60px;
+    display: felx;
+  }
+  100% {
+    height: 0px;
+    display: none;
+  }
+}
+.logo_image {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+.logo_ment {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.logo_visible {
+  transition: 0.5s;
+  animation: showLogo 1s;
+}
+.logo_unvisible {
+  transition: 0.5s;
+  animation: hideLogo 0.7s;
+  height: 0;
+}
+@keyframes showLogo {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: 30px;
+    opacity: 1;
+  }
+}
+@keyframes hideLogo {
+  0% {
+    height: 30px;
+  }
+  100% {
+    height: 0;
+    opacity: 0;
+    display: none;
+  }
+}
+
+.nav_right {
+  display: flex;
+  height: 60px;
+  align-self: stretch;
+  align-items: center;
+  margin-left: auto;
+}
