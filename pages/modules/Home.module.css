@@ -2,3 +2,82 @@
   font-size: 50px;
   color: #333;
 }
+
+.main_div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.sub_div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.right_div {
+  background-image: url("/main_vector.webp");
+}
+
+.sub_title {
+  font-size: 6vw;
+  color: #333;
+  margin-left: 10%;
+  opacity: 0;
+  animation: fadeIn_subTitle 2s forwards;
+  font-family: sans-serif;
+}
+
+@keyframes fadeIn_subTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn_div {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  opacity: 0;
+  animation: fadeIn_btn 2s forwards;
+}
+@keyframes fadeIn_btn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn {
+  width: 150px;
+  padding: 10px;
+  margin: 20px;
+}
+
+.show_later {
+  animation: fadeIn_showLater 4s forwards;
+}
+@keyframes fadeIn_showLater {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  font-size: 8vw;
+  color: #333;
+  font-family: sans-serif;
+}

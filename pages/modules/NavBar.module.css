@@ -15,7 +15,7 @@
   bottom: 0;
   right: 0;
   z-index: -1;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(3px);
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
   transition: opacity 0.4s ease;
@@ -94,7 +94,80 @@
 .nav_right {
   display: flex;
   height: 60px;
-  align-self: stretch;
   align-items: center;
   margin-left: auto;
+  margin-right: 20px;
+}
+.nav_right_visible {
+  transition: 0.5s;
+  animation: show_nav_right 0.5s;
+}
+.nav_right_unvisible {
+  transition: 0.5s;
+  animation: hide_nav_right 0.5s;
+  height: 0;
+}
+
+@keyframes show_nav_right {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: 60px;
+    opacity: 1;
+  }
+}
+
+.dark_mode {
+  transition: 0.3s;
+  opacity: 0.7;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.dark_mode:hover {
+  transition: 0.3s;
+  opacity: 1;
+}
+@keyframes fadeIn_icon {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+.link {
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+  transition: 0.3s;
+  opacity: 0.7;
+  font-family: sans-serif;
+  font-weight: 500;
+}
+.link:hover {
+  opacity: 1;
+}
+
+.icon_div {
+  transition: 0.5s;
+}
+.rotate {
+  animation: rotate 0.5s;
+}
+@keyframes rotate {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+  }
 }
