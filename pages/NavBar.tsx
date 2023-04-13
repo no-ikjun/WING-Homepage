@@ -34,7 +34,7 @@ export default function NavBar() {
           <Image className={styles.dark_mode} src={`/${themeMode === "light" ? "moon" : "sun"}.webp`} width={25} height={25} alt="Dark Mode" quality={100} />
         </div>
         <Link href="/sessions" className={styles.link}>
-          Session
+          Sessions
         </Link>
         <Link href="members" className={styles.link}>
           Members
