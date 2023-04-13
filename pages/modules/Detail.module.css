@@ -1,0 +1,28 @@
+.main_div {
+  width: 100%;
+  padding-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.container {
+  width: 80%;
+  align-items: center;
+}
+.main_title {
+  font-size: 40px;
+  color: #333;
+  display: inline-block;
+  font-family: sans-serif;
+  width: fit-content;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.sub_title {
+  display: inline-block;
+  margin-left: 13px;
+  font-size: 17px;
+  color: #a8a8a8;
+  font-family: sans-serif;
+}

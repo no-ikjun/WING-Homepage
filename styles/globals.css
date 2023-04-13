@@ -2,3 +2,9 @@ body {
   margin: 0;
   padding: 0;
 }
+body[data-theme="dark"] #home-profile {
+  background-color: black;
+}
+body[data-theme="light"] #home-profile {
+  background-color: white;
+}
