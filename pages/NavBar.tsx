@@ -27,7 +27,7 @@ export default function NavBar() {
   }, [isRotating]);
 
   useEffect(() => {
-    const handleScroll = () => setIsVisible(window.pageYOffset !== 0 && router.pathname === "/");
+    const handleScroll = () => setIsVisible(window.pageYOffset !== 0 || router.pathname !== "/");
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
