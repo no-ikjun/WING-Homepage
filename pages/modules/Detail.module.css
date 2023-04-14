@@ -40,7 +40,15 @@
   font-size: 15px;
   color: #a8a8a8;
   font-family: sans-serif;
-  animation: show_later 1s forwards;
+  animation: show_later_sub 2s forwards;
+}
+@keyframes show_later_sub {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .members {
   width: 100%;
@@ -78,9 +86,10 @@
   flex-direction: column;
 }
 .member_title {
-  font-size: 25px;
-  margin-top: 0;
+  font-size: 27px;
+  margin-top: -10px;
   margin-bottom: 10px;
+  font-family: sans-serif;
 }
 .member_info_div {
   width: calc(100%-20px);
@@ -92,6 +101,8 @@
   display: flex;
   margin-top: 25px;
   margin-bottom: 25px;
+  align-items: flex-start;
+  font-family: sans-serif;
 }
 .member_photo_div {
   margin: 10px;
@@ -101,6 +112,7 @@
   border-radius: 50%;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 2px;
+  min-width: 140px;
 }
 .member_photo {
   object-fit: cover;
@@ -126,7 +138,7 @@
   color: #707070;
 }
 .member_skill {
-  padding-left: 15px;
+  padding-left: 0px;
   margin-top: 2px;
   margin-bottom: 2px;
   font-size: 16px;
@@ -147,4 +159,28 @@
   filter: grayscale(0);
   transition: 0.3s;
   opacity: 1;
+}
+.member_skill_list::marker {
+  content: "";
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 96%;
+  }
+}
+@media screen and (max-width: 968px) {
+  .senior_div {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .junior_div {
+    margin-top: 0;
+  }
+  .right_div {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }

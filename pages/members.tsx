@@ -27,7 +27,7 @@ export default function Members() {
               email="paperstar@gm.gist.ac.kr"
               skill={["現 팀 피클 테크리드", "現 Zephy 개발팀 풀스택", "前 심플태그 개발팀장", "前 교내 인트라넷 개발팀 풀스택"]}
               role="FullStack"
-              link={["github,https://github.com", "youtube,https://www.youtube.com/"]}
+              link={["github,https://github.com/2paperstar", "youtube,https://www.youtube.com/"]}
             />
             <Profile
               id={7}

@@ -32,7 +32,8 @@ export default function NavBar() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [router.pathname]);
+
   return (
     <nav className={router.pathname === "/" ? [styles.navbar, `${isVisible ? styles.nav_visible : styles.nav_unvisible}`].join(" ") : [styles.navbar, styles.nav_visible].join(" ")} ref={componentRef}>
       <Link href="/">
