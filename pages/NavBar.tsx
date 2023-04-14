@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import styles from "./modules/NavBar.module.css";
 import { useState, useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
 
 export default function NavBar() {
   const router = useRouter();
@@ -10,12 +11,22 @@ export default function NavBar() {
   const componentRef = useRef(null);
   const [themeMode, setThemeMode] = useState<"dark" | "light">("light");
   const [isRotating, setIsRotating] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    const f_theme = window.localStorage.getItem("theme");
+    if (!f_theme) {
+      window.localStorage.setItem("theme", "light");
+      setThemeMode("light");
+    }
+  }, [router.pathname]);
 
   const themeModeHandler = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setIsRotating(true);
     setThemeMode(themeMode === "dark" ? "light" : "dark");
-    console.log(themeMode);
+    setTheme(theme === "dark" ? "light" : "dark");
+    window.localStorage.setItem("theme", theme === "dark" ? "light" : "dark");
   };
 
   useEffect(() => {
@@ -70,7 +81,7 @@ export default function NavBar() {
         </Link>
         <div onClick={themeModeHandler} className={styles.dark_div} style={{ height: 35 }}>
           <div className={[`${isRotating ? styles.rotate : ""}`, styles.icon_div].join(" ")}>
-            <Image className={styles.dark_mode} src={`/${themeMode === "light" ? "moon" : "sun"}.webp`} width={20} height={20} alt="Dark Mode" quality={100} />
+            <Image className={styles.dark_mode} src={`/${theme === "light" || !theme ? "moon" : "sun"}.webp`} width={20} height={20} alt="Dark Mode" quality={100} />
           </div>
         </div>
       </div>

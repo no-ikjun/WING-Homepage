@@ -26,6 +26,9 @@
   margin-bottom: -5px;
   animation: show_later 1s forwards;
 }
+[data-theme="dark"] .main_title {
+  color: #f8f8f8;
+}
 @keyframes show_later {
   0% {
     opacity: 0;
@@ -59,6 +62,9 @@
   background-color: #fefefe;
   border-radius: 10px;
   margin-bottom: 50px;
+}
+[data-theme="dark"] .members {
+  background-color: #111111;
 }
 .senior_div,
 .junior_div,
@@ -104,6 +110,11 @@
   align-items: flex-start;
   font-family: sans-serif;
 }
+[data-theme="dark"] .member_info_div {
+  background-color: #222222;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 3px 1px;
+  color: #f8f8f8;
+}
 .member_photo_div {
   margin: 10px;
   margin-left: 15px;
@@ -113,6 +124,9 @@
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 2px;
   min-width: 140px;
+}
+[data-theme="dark"] .member_photo_div {
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 3px 1px;
 }
 .member_photo {
   object-fit: cover;
@@ -159,6 +173,14 @@
   filter: grayscale(0);
   transition: 0.3s;
   opacity: 1;
+}
+[data-theme="dark"] .link_icon {
+  filter: brightness(60%) invert(1) grayscale(1);
+  transition: 0.3s;
+}
+[data-theme="dark"] .link_icon:hover {
+  filter: brightness(100%) grayscale(0);
+  transition: 0.3s;
 }
 .member_skill_list::marker {
   content: "";

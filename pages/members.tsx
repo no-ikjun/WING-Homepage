@@ -1,8 +1,10 @@
 import styles from "./modules/Detail.module.css";
 import Image from "next/image";
 import Profile from "@/components/profile";
+import { useTheme } from "next-themes";
 
 export default function Members() {
+  const { theme, setTheme } = useTheme();
   return (
     <div className={styles.main_div}>
       <div className={styles.container}>

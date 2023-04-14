@@ -20,6 +20,10 @@
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
   transition: opacity 0.4s ease;
 }
+[data-theme="dark"] .navbar::before {
+  background: rgba(17, 17, 17, 0.6);
+  box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.15);
+}
 .nav_visible {
   animation: showNav 0.5s;
   display: flex;
@@ -164,7 +168,12 @@
 .link:hover {
   opacity: 1;
 }
-
+[data-theme="dark"] .link {
+  color: #fff;
+}
+[data-theme="dark"] .dark_mode {
+  filter: invert(1);
+}
 .icon_div {
   width: 35px;
   height: 20px;
@@ -188,12 +197,15 @@
   transition: 0.3s;
   background-color: #e8e8e8;
 }
+[data-theme="dark"] .dark_div:hover {
+  background-color: #323232;
+}
 .rotate {
   animation: rotate 0.2s;
 }
 @keyframes rotate {
   0% {
-    transform: scale(0) rotate(-90deg);
+    transform: scale(0) rotate(-120deg);
     opacity: 0;
   }
   100% {
