@@ -79,7 +79,7 @@ export default function NavBar() {
         <Link href="about" className={styles.link}>
           About
         </Link>
-        <div onClick={themeModeHandler} className={styles.dark_div} style={{ height: 35 }}>
+        <div onClick={themeModeHandler} className={[styles.dark_div, `${isVisible || !(router.pathname === "/") ? styles.dark_div_visible : styles.dark_div_unvisible}`].join(" ")}>
           <div className={[`${isRotating ? styles.rotate : ""}`, styles.icon_div].join(" ")}>
             <Image className={styles.dark_mode} src={`/${theme === "light" || !theme ? "moon" : "sun"}.webp`} width={20} height={20} alt="Dark Mode" quality={100} />
           </div>

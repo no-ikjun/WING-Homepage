@@ -138,6 +138,10 @@
   transition: 0.3s;
   opacity: 0.7;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .dark_mode:hover {
   transition: 0.3s;
@@ -176,7 +180,6 @@
 }
 .icon_div {
   width: 35px;
-  height: 20px;
   margin-top: 7.5px;
   margin-bottom: 7.5px;
 }
@@ -196,6 +199,33 @@
 .dark_div:hover {
   transition: 0.3s;
   background-color: #e8e8e8;
+}
+@keyframes show_dark_div {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-35px);
+    opacity: 0;
+  }
+}
+@keyframes hide_dark_div {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
+.dark_div_visible {
+  transform: translateY(0);
+}
+.dark_div_unvisible {
+  animation: hide_dark_div 0.5s;
+  visibility: hidden;
 }
 [data-theme="dark"] .dark_div:hover {
   background-color: #323232;
