@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import styles from "./modules/NavBar.module.css";
+import styles from "../pages/modules/NavBar.module.css";
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
 

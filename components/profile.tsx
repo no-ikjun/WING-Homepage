@@ -1,7 +1,6 @@
 import styles from "../pages/modules/Detail.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { UrlObject } from "url";
 
 interface ProfileProps {
   id: number;

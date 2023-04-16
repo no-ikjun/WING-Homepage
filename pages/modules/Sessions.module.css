@@ -63,6 +63,9 @@
   border-radius: 10px;
   margin-bottom: 0px;
 }
+[data-theme="dark"] .sessions {
+  background-color: #111111;
+}
 .sessions_div {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -85,11 +88,17 @@
   margin-bottom: 10px;
   font-family: sans-serif;
 }
+[data-theme="dark"] .sessions_title {
+  color: #f8f8f8;
+}
 .sessions_content {
   font-size: 17px;
   font-family: sans-serif;
   line-height: 27px;
   margin-top: 15px;
+}
+[data-teme="dark"] .sessions_content {
+  color: #f8f8f8;
 }
 .intro_left {
   animation: slide_left 1s;
@@ -116,4 +125,12 @@
     transform: translateX(0);
     opacity: 1;
   }
+}
+.form_link {
+  font-size: 17px;
+  color: #a8a8a8;
+  text-decoration: underline;
+}
+.form_link:hover {
+  color: #999999;
 }
