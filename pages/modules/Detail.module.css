@@ -53,6 +53,14 @@
     opacity: 1;
   }
 }
+@keyframes show_later_members {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .members {
   width: 100%;
   display: flex;
@@ -62,6 +70,7 @@
   background-color: #fefefe;
   border-radius: 10px;
   margin-bottom: 50px;
+  animation: show_later_members 1s;
 }
 [data-theme="dark"] .members {
   background-color: #111111;

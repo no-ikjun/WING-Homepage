@@ -134,3 +134,7 @@
 .form_link:hover {
   color: #999999;
 }
+.sessions_history_div {
+  width: 50%;
+  display: inline-flex;
+}

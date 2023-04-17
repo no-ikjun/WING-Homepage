@@ -1,5 +1,4 @@
 import styles from "./modules/Detail.module.css";
-import Image from "next/image";
 import Profile from "@/components/profile";
 import { useTheme } from "next-themes";
 import IndexPage from "@/components/Head";
@@ -23,7 +22,7 @@ export default function Members() {
                 name="이주찬"
                 email="---@gm.gist.ac.kr"
                 skill={["現 22/23년도 GDSC Lead", "現 지간표 백엔드 개발자", "前 Naver Clova 백엔드 인턴", "前 (주)그룹바이 백엔드 개발자"]}
-                role="BackEnd"
+                role="Backend"
                 link={["github,https://github.com", "linkedin,https://www.linkedin.com/"]}
               />
               <Profile
@@ -31,7 +30,7 @@ export default function Members() {
                 name="이보성"
                 email="paperstar@gm.gist.ac.kr"
                 skill={["現 팀 피클 테크리드", "現 Zephy 개발팀 풀스택", "前 심플태그 개발팀장", "前 교내 인트라넷 개발팀 풀스택"]}
-                role="FullStack"
+                role="SW Engineer"
                 link={["github,https://github.com/2paperstar", "youtube,https://www.youtube.com/"]}
               />
               <Profile
@@ -39,7 +38,7 @@ export default function Members() {
                 name="김선규"
                 email="----@gm.gist.ac.kr"
                 skill={["現 GDSC 멘토", "前 업비트 3년차 백엔드 개발자", "前 18년도 WING 동아리장", "前 펭귄리포트 백엔드 개발자"]}
-                role="BackEnd"
+                role="BE"
                 link={["github,https://github.com"]}
               />
               <Profile
@@ -47,7 +46,7 @@ export default function Members() {
                 name="정재홍"
                 email="jaehong21@gm.gist.ac.kr"
                 skill={["現 22/23년도 WING 동아리장", "現 GDSC 멘토", "現 (주)시고르자브종 테크리드", "前 (주)PiLab Web3 개발자 인턴", "前 GIST 집행위 정보국 DevOps"]}
-                role="BackEnd/Infra"
+                role="Infra"
                 link={["github,https://github.com"]}
               />
               <Profile id={9} name="이상유" email="----@gm.gist.ac.kr" skill={["現 데브시스터즈 3년차 개발자", "前 20/22년도 인포팀장"]} role="DevOps" link={["github,https://github.com"]} />
@@ -56,7 +55,7 @@ export default function Members() {
                 name="김윤재"
                 email="rladbswo@gm.gist.ac.kr"
                 skill={["現 GDSC 멘토", "現 Focus50 풀스택 개발자", "前 (주)그룹바이 백엔드 개발자", "前 소프트웨어 마이스트로 13기"]}
-                role="FrontEnd/Flutter"
+                role="Flutter"
                 link={["github,https://github.com"]}
               />
               <Profile
@@ -64,7 +63,7 @@ export default function Members() {
                 name="고도현"
                 email="----@gm.gist.ac.kr"
                 skill={["現 (주)시고르자브종 프론트엔드", "現 GDSC 코어팀 (기술팀)", "現 GIST 집행위 정보국 프론트엔드"]}
-                role="FrontEnd"
+                role="FE"
                 link={["github,https://github.com"]}
               />
             </div>
@@ -76,7 +75,7 @@ export default function Members() {
                   name="최익준"
                   email="ikjunchoi_ug@gm.gist.ac.kr"
                   skill={["現 GIST 집행위 정보국 백엔드 개발자", "前 교내 학생커뮤니티 개발팀장"]}
-                  role="FrontEnd"
+                  role="FE"
                   link={["github,https://github.com/no-ikjun", "velog,https://velog.io/@choi041101", "else,https://jshsus.kr"]}
                 />
                 <Profile
@@ -84,7 +83,7 @@ export default function Members() {
                   name="이예빈"
                   email="leeyebeen_ug@gm.gist.ac.kr"
                   skill={["現 GIST 집행위 정보국 프론트엔드 개발자"]}
-                  role="FrontEnd"
+                  role="FE"
                   link={["github,https://github.com", "instagram,https://instagram.com/"]}
                 />
                 <Profile
@@ -92,10 +91,10 @@ export default function Members() {
                   name="오다현"
                   email="o_dahyun@gm.gist.ac.kr"
                   skill={["現 (주)시고르자브종 백엔드 개발자", "現 GIST 집행위 정보국 백엔드 개발자"]}
-                  role="BackEnd"
+                  role="BE"
                   link={["github,https://github.com/controlZ"]}
                 />
-                <Profile id={4} name="박시원" email="----@gm.gist.ac.kr" skill={["現 GIST 집행위 정보국 백엔드 개발자", "現 REGO 백엔드 개발자"]} role="BackEnd" link={["github,https://github.com"]} />
+                <Profile id={4} name="박시원" email="----@gm.gist.ac.kr" skill={["現 GIST 집행위 정보국 백엔드 개발자", "現 REGO 백엔드 개발자"]} role="BE" link={["github,https://github.com"]} />
               </div>
               <div className={styles.ai_div}>
                 <h2 className={styles.member_title}>AI Team</h2>

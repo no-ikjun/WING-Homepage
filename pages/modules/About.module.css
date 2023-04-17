@@ -26,6 +26,9 @@
   margin-bottom: -5px;
   animation: show_later 1s forwards;
 }
+[data-theme="dark"] .main_title {
+  color: #f8f8f8;
+}
 @keyframes show_later {
   0% {
     opacity: 0;

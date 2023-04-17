@@ -48,8 +48,14 @@ export default function Sessions() {
             </div>
           </div>
           <div className={styles.sessions} style={{ marginTop: 30 }}>
-            <div className={[styles.sessions_div, styles.intro_left].join(" ")}>
+            <div className={[styles.sessions_div, styles.intro_left].join(" ")} style={{ width: "100%" }}>
               <h2 className={styles.sessions_title}>WING Session History</h2>
+              <div className={styles.sessions_history_div}>
+                <h3>dadsf</h3>
+              </div>
+              <div className={styles.sessions_history_div}>
+                <h3>dafdaf</h3>
+              </div>
             </div>
           </div>
         </div>
