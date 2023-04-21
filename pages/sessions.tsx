@@ -4,14 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import Modal from "@/components/modal";
 import { useState } from "react";
+import { ModalProvider, useModal } from "@/components/ModalContext";
 
 export default function Sessions() {
-  const [modalVisible, setModalVisible] = useState(false);
-  const [modalData, setModalData] = useState("");
+  const [visible, setVisible] = useState(false);
   return (
-    <>
+    <ModalProvider>
       <IndexPage title="WING | Sessions" description="GIST Developer Group, WING | Contents of WING's Sessions" />
-      <Modal url="/1st_session.webp" />
       <div className={styles.main_div}>
         <div className={styles.container}>
           <div className={styles.title_div}>
@@ -58,9 +57,10 @@ export default function Sessions() {
                 WING Session History
               </h2>
               <div className={styles.sessions_history_div}>
+                <Modal url="/1st_session.webp" onClose={() => setVisible(false)} visible={visible} />
                 <h3 className={styles.session_title}>1st Open Session</h3>
                 <div className={styles.session_info}>
-                  <Image src="/1st_session.webp" alt="poster" width={170} height={250} className={styles.session_poster} />
+                  <Image src="/1st_session.webp" alt="poster" width={170} height={250} className={styles.session_poster} onClick={() => setVisible(true)} />
                   <span className={styles.session_info_detail}>
                     WING의 첫 번째 세션이 시작되었습니다!
                     <ul>
@@ -90,6 +90,6 @@ export default function Sessions() {
           </div>
         </div>
       </div>
-    </>
+    </ModalProvider>
   );
 }

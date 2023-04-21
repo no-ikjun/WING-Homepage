@@ -192,6 +192,11 @@
   display: inline-block;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px 2px;
+  cursor: pointer;
+}
+.session_poster:hover {
+  transform: scale(1.01);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px 2px;
 }
 [data-theme="dark"] .session_poster {
   box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 3px 1px;
@@ -202,14 +207,6 @@
   font-size: 15px;
   font-family: sans-serif;
   line-height: 23px;
-}
-.session_poster:hover {
-  transition: 0.5s;
-  transform: scale(1.8);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px 4px;
-  transition-delay: 0.2s;
-  transition-timing-function: cubic-bezier(0.94, 0, 0.72, 0.69);
-  border-radius: 0px;
 }
 .session_info_sub_title {
   font-size: 19px;
