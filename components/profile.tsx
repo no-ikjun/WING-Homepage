@@ -15,7 +15,7 @@ export default function Profile({ id, name, email, skill, role, link }: ProfileP
   return (
     <div className={styles.member_info_div}>
       <div className={styles.member_photo_div}>
-        <Image className={styles.member_photo} src={`/profile/profile_${id}.webp`} width={140} height={140} alt="Member Photo" quality={100} />
+        <Image loading="lazy" className={styles.member_photo} src={`/profile/profile_${id}.webp`} width={140} height={140} alt="Member Photo" quality={100} />
       </div>
       <div className={styles.member_detail_div}>
         <h3 className={styles.member_name}>

@@ -149,6 +149,7 @@
 .sessions_history_div {
   width: 49%;
   display: inline-flex;
+  flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px 2px;
   border-radius: 10px;
   background-color: #ffffff;
@@ -171,6 +172,10 @@
   background-color: #222222;
   box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 3px 1px;
 }
+.session_info {
+  display: flex;
+  width: 100%;
+}
 .session_title {
   font-family: sans-serif;
   color: #333;
@@ -178,5 +183,41 @@
   font-size: 23px;
 }
 [data-theme="dark"] .session_title {
+  color: #f8f8f8;
+}
+.session_poster {
+  margin: 15px;
+  transition: 0.5s;
+  margin-top: 0;
+  display: inline-block;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px 2px;
+}
+[data-theme="dark"] .session_poster {
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 3px 1px;
+}
+.session_info_detail {
+  margin-top: 0;
+  margin-right: 15px;
+  font-size: 15px;
+  font-family: sans-serif;
+  line-height: 23px;
+}
+.session_poster:hover {
+  transition: 0.5s;
+  transform: scale(1.8);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px 4px;
+  transition-delay: 0.2s;
+  transition-timing-function: cubic-bezier(0.94, 0, 0.72, 0.69);
+  border-radius: 0px;
+}
+.session_info_sub_title {
+  font-size: 19px;
+  color: #333;
+  font-family: sans-serif;
+  margin-top: 7px;
+  margin-bottom: 0;
+}
+[data-theme="dark"] .session_info_sub_title {
   color: #f8f8f8;
 }

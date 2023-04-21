@@ -2,11 +2,16 @@ import IndexPage from "@/components/Head";
 import styles from "./modules/Sessions.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import Modal from "@/components/modal";
+import { useState } from "react";
 
 export default function Sessions() {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalData, setModalData] = useState("");
   return (
     <>
       <IndexPage title="WING | Sessions" description="GIST Developer Group, WING | Contents of WING's Sessions" />
+      <Modal url="/1st_session.webp" />
       <div className={styles.main_div}>
         <div className={styles.container}>
           <div className={styles.title_div}>
@@ -26,12 +31,12 @@ export default function Sessions() {
               </p>
             </div>
             <div className={[styles.sessions_div, styles.intro_photo, styles.intro_right].join(" ")} style={{ width: "45%" }}>
-              <Image className={styles.sessions_photo} src={"/kindpng_484211.png"} alt="sessions_intro" width={500} height={300} />
+              <Image className={styles.sessions_photo} src={"/kindpng_484211.webp"} alt="sessions_intro" width={500} height={300} />
             </div>
           </div>
           <div className={styles.sessions}>
             <div className={[styles.sessions_div, styles.intro_photo, styles.intro_left].join(" ")} style={{ width: "35%" }}>
-              <Image className={styles.sessions_photo} src={"/Daco_3737758.png"} alt="sessions_intro" width={300} height={300} />
+              <Image className={styles.sessions_photo} src={"/Daco_3737758.webp"} alt="sessions_intro" width={300} height={300} />
             </div>
             <div className={[styles.sessions_div, styles.intro_text, styles.intro_right].join(" ")} style={{ width: "65%" }}>
               <h2 className={styles.sessions_title}>How to join?</h2>
@@ -49,12 +54,28 @@ export default function Sessions() {
           </div>
           <div className={styles.sessions} style={{ marginTop: 30 }}>
             <div className={styles.sessions_div} style={{ width: "100%" }}>
-              <h2 className={[styles.sessions_title, styles.intro_left].join(" ")}>WING Session History</h2>
-              <Link href="/sessions" className={styles.session_link}>
-                <div className={styles.sessions_history_div}>
-                  <h3 className={styles.session_title}>1st Session</h3>
+              <h2 className={[styles.sessions_title, styles.intro_left].join(" ")} style={{ marginTop: 25 }}>
+                WING Session History
+              </h2>
+              <div className={styles.sessions_history_div}>
+                <h3 className={styles.session_title}>1st Open Session</h3>
+                <div className={styles.session_info}>
+                  <Image src="/1st_session.webp" alt="poster" width={170} height={250} className={styles.session_poster} />
+                  <span className={styles.session_info_detail}>
+                    WING의 첫 번째 세션이 시작되었습니다!
+                    <ul>
+                      <li>첫번째주제</li>
+                    </ul>
+                    <h4 className={styles.session_info_sub_title}>진행 일정 및 장소</h4>
+                    일시 : 2023년 3월 24일 (금) 19:00 ~ 21:00 <br />
+                    장소 : GIST 학사기숙사 B동 1층 해동학술정보실
+                    <h4 className={styles.session_info_sub_title}>진행자</h4>
+                    FE : 이예빈, 박시원, 최익준
+                    <br />
+                    BE : 오다현, 김선규, 정재홍
+                  </span>
                 </div>
-              </Link>
+              </div>
               <Link href="/sessions" className={styles.session_link}>
                 <div className={styles.sessions_history_div}>
                   <h3 className={styles.session_title}>2nd Session</h3>
