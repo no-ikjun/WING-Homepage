@@ -58,7 +58,6 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 10px;
-  /*box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px 2px inset;*/
   background-color: #fefefe;
   border-radius: 10px;
   margin-bottom: 0px;
@@ -81,6 +80,18 @@
 }
 .sessions_photo {
   justify-content: center;
+}
+.width_55 {
+  width: 55%;
+}
+.width_45 {
+  width: 45%;
+}
+.width_65 {
+  width: 65%;
+}
+.width_35 {
+  width: 35%;
 }
 .sessions_title {
   font-size: 28px;
@@ -237,4 +248,34 @@
   margin-bottom: 2px;
   margin-left: 0;
   margin-right: 0;
+}
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 96%;
+  }
+}
+@media screen and (max-width: 968px) {
+  .sessions_history_div {
+    width: 100%;
+  }
+  .sessions {
+    display: block;
+  }
+  .width_35 {
+    display: none;
+  }
+  .width_45 {
+    display: none;
+  }
+  .width_55 {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  .width_65 {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  .session_info_detail_ment {
+    display: none;
+  }
 }
