@@ -91,6 +91,18 @@
 [data-theme="dark"] .sessions_title {
   color: #f8f8f8;
 }
+.session_title_sub {
+  margin-left: 10px;
+  color: #999999;
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  float: right;
+}
+.session_title_sub:hover {
+  text-decoration: underline;
+}
 .sessions_content {
   font-size: 17px;
   font-family: sans-serif;
@@ -134,18 +146,6 @@
 .form_link:hover {
   color: #999999;
 }
-.session_link {
-  text-decoration: none;
-  color: #333;
-}
-.session_link:nth-child(even) {
-  margin-left: 0;
-  margin-right: 1%;
-}
-.session_link:nth-child(odd) {
-  margin-left: 1%;
-  margin-right: 0;
-}
 .sessions_history_div {
   width: 49%;
   display: inline-flex;
@@ -157,6 +157,14 @@
   margin-bottom: 15px;
   font-family: sans-serif;
   animation: show_detail_up 1s;
+}
+.sessions_history_div:nth-child(even) {
+  margin-left: 0;
+  margin-right: 1%;
+}
+.sessions_history_div:nth-child(odd) {
+  margin-left: 1%;
+  margin-right: 0;
 }
 @keyframes show_detail_up {
   0% {
@@ -207,14 +215,26 @@
   font-size: 15px;
   font-family: sans-serif;
   line-height: 23px;
+  margin-bottom: 10px;
+}
+.session_info_detail_ment {
+  margin-top: 0;
+  margin-bottom: 3px;
 }
 .session_info_sub_title {
   font-size: 19px;
   color: #333;
   font-family: sans-serif;
-  margin-top: 7px;
+  margin-top: 10px;
   margin-bottom: 0;
 }
 [data-theme="dark"] .session_info_sub_title {
   color: #f8f8f8;
+}
+.session_info_member {
+  font-size: 13px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 0;
+  margin-right: 0;
 }

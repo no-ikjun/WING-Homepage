@@ -9,12 +9,6 @@ interface ModalProps {
 }
 
 export default function Modal({ url, onClose, visible }: ModalProps) {
-  const [modalVisible, setModalVisible] = useState(true);
-
-  useEffect(() => {
-    setModalVisible(true);
-  }, []);
-
   const handleCloseClick = (e: any) => {
     e.preventDefault();
     onClose();
@@ -22,12 +16,12 @@ export default function Modal({ url, onClose, visible }: ModalProps) {
 
   return (
     <>
-      <div className={styles.modal} style={{ display: `${visible && modalVisible ? "block" : "none"}` }}>
+      <div className={styles.modal} style={{ display: `${visible ? "block" : "none"}` }}>
         <div className={styles.modal_body}>
           <div className={styles.modal_close} onClick={handleCloseClick}>
             창 닫기 ☓
           </div>
-          <Image src={url} alt="modal-img" width={480} height={680} className={styles.modal_img} />
+          <Image src={`/${url}_session.webp`} alt="modal-img" width={480} height={680} className={styles.modal_img} />
         </div>
       </div>
     </>

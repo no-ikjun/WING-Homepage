@@ -5,11 +5,20 @@ import Link from "next/link";
 import Modal from "@/components/modal";
 import { useState } from "react";
 import { ModalProvider, useModal } from "@/components/ModalContext";
+import SessionDetail from "@/components/sessionDetail";
 
 export default function Sessions() {
   const [visible, setVisible] = useState(false);
+  const [modalNum, setModalNum] = useState("");
   return (
     <ModalProvider>
+      <Modal
+        url={modalNum}
+        visible={visible}
+        onClose={() => {
+          setVisible(false);
+        }}
+      />
       <IndexPage title="WING | Sessions" description="GIST Developer Group, WING | Contents of WING's Sessions" />
       <div className={styles.main_div}>
         <div className={styles.container}>
@@ -56,36 +65,32 @@ export default function Sessions() {
               <h2 className={[styles.sessions_title, styles.intro_left].join(" ")} style={{ marginTop: 25 }}>
                 WING Session History
               </h2>
-              <div className={styles.sessions_history_div}>
-                <Modal url="/1st_session.webp" onClose={() => setVisible(false)} visible={visible} />
-                <h3 className={styles.session_title}>1st Open Session</h3>
-                <div className={styles.session_info}>
-                  <Image src="/1st_session.webp" alt="poster" width={170} height={250} className={styles.session_poster} onClick={() => setVisible(true)} />
-                  <span className={styles.session_info_detail}>
-                    WING의 첫 번째 세션이 시작되었습니다!
-                    <ul>
-                      <li>첫번째주제</li>
-                    </ul>
-                    <h4 className={styles.session_info_sub_title}>진행 일정 및 장소</h4>
-                    일시 : 2023년 3월 24일 (금) 19:00 ~ 21:00 <br />
-                    장소 : GIST 학사기숙사 B동 1층 해동학술정보실
-                    <h4 className={styles.session_info_sub_title}>진행자</h4>
-                    FE : 이예빈, 박시원, 최익준
-                    <br />
-                    BE : 오다현, 김선규, 정재홍
-                  </span>
-                </div>
-              </div>
-              <Link href="/sessions" className={styles.session_link}>
-                <div className={styles.sessions_history_div}>
-                  <h3 className={styles.session_title}>2nd Session</h3>
-                </div>
-              </Link>
-              <Link href="/sessions" className={styles.session_link}>
-                <div className={styles.sessions_history_div}>
-                  <h3 className={styles.session_title}>3rd Session</h3>
-                </div>
-              </Link>
+              <SessionDetail
+                url="1"
+                event={() => {
+                  setVisible(true);
+                  setModalNum("1");
+                }}
+                title="1st Open Session"
+                ment1="WING의 첫 번째 세션이 시작되었습니다!"
+                ment2="React 기초부터 전문 백엔드 개발 지식까지 다양한 기술을 다루었습니다."
+                date="2023년 3월 24일 (금) 19:00 ~ 21:00"
+                location="GIST 학사기숙사 B동 1층 해동학술정보실"
+                member={["FE : 이예빈, 박시원, 최익준", "BE : 오다현, 김션규, 정재홍"]}
+              />
+              <SessionDetail
+                url="2"
+                event={() => {
+                  setVisible(true);
+                  setModalNum("2");
+                }}
+                title="2nd Open Session"
+                ment1="WING의 두 번째 세션입니다!"
+                ment2="프론트엔드 위주의 기술 발표와 함께, 처음으로 AI 세션이 진행되었습니다!"
+                date="2023년 4월 7일(금) 19:00 - 22:00"
+                location="GIST 학사기숙사 B동 1층 해동학술정보실"
+                member={["FE : 이예빈, 최익준, 이보성, 고도현", "AI : 이준명"]}
+              />
             </div>
           </div>
         </div>
