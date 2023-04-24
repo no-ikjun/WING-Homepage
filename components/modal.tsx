@@ -1,27 +1,25 @@
 import Image from "next/image";
 import styles from "../pages/modules/Modal.module.css";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 interface ModalProps {
   url: string;
-  onClose: () => void;
+  onClose: (e: any) => void;
   visible: boolean;
+  modalRef: React.ForwardedRef<HTMLDivElement>;
 }
 
-export default function Modal({ url, onClose, visible }: ModalProps) {
+export default function Modal({ url, onClose, visible, modalRef }: ModalProps) {
   const handleCloseClick = (e: any) => {
     e.preventDefault();
-    onClose();
+    onClose(e);
   };
 
   return (
     <>
-      <div className={styles.modal} style={{ display: `${visible ? "block" : "none"}` }}>
+      <div className={styles.modal} style={{ display: `${visible ? "block" : "none"}` }} ref={modalRef} onClick={handleCloseClick}>
         <div className={styles.modal_body}>
-          <div className={styles.modal_close} onClick={handleCloseClick}>
-            창 닫기 ☓
-          </div>
-          <Image src={`/${url}_session.webp`} alt="modal-img" width={480} height={680} className={styles.modal_img} />
+          <Image src={`/${url}_session.webp`} alt="modal-img" fill className={styles.modal_img} />
         </div>
       </div>
     </>

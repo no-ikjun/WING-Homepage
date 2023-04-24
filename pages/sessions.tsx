@@ -3,21 +3,25 @@ import styles from "./modules/Sessions.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import Modal from "@/components/modal";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ModalProvider, useModal } from "@/components/ModalContext";
 import SessionDetail from "@/components/sessionDetail";
 
 export default function Sessions() {
   const [visible, setVisible] = useState(false);
   const [modalNum, setModalNum] = useState("");
+  const modalRef = useRef<HTMLDivElement>(null);
   return (
     <ModalProvider>
       <Modal
         url={modalNum}
         visible={visible}
-        onClose={() => {
-          setVisible(false);
+        onClose={(e: any) => {
+          if (modalRef.current === e.target) {
+            setVisible(false);
+          }
         }}
+        modalRef={modalRef}
       />
       <IndexPage title="WING | Sessions" description="GIST Developer Group, WING | Contents of WING's Sessions" />
       <div className={styles.main_div}>
@@ -76,7 +80,7 @@ export default function Sessions() {
                 ment2="React 기초부터 전문 백엔드 개발 지식까지 다양한 기술을 다루었습니다."
                 date="2023년 3월 24일 (금) 19:00 ~ 21:00"
                 location="GIST 학사기숙사 B동 1층 해동학술정보실"
-                member={["FE : 이예빈, 박시원, 최익준", "BE : 오다현, 김션규, 정재홍"]}
+                member={["FE : 이예빈, 박시원, 최익준", "BE : 오다현, 김선규, 정재홍"]}
               />
               <SessionDetail
                 url="2"

@@ -18,6 +18,9 @@
   border-radius: 10px;
   transform: translateX(-50%) translateY(-50%);
   animation: showModal 0.5s;
+  height: 80%;
+  width: 30%;
+  box-shadow: none;
 }
 @keyframes showModal {
   0% {
@@ -42,12 +45,14 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin-top: 50px;
+  margin-top: 10px;
   margin-bottom: 0;
-  margin-right: 50px;
+  margin-right: 65px;
   color: #222;
+  z-index: 100;
 }
 .modal_img {
-  border-radius: 20px;
+  border-radius: 1%;
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+  object-fit: contain;
 }
