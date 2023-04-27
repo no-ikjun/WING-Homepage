@@ -3,25 +3,21 @@ import styles from "./modules/Sessions.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import Modal from "@/components/modal";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ModalProvider, useModal } from "@/components/ModalContext";
 import SessionDetail from "@/components/sessionDetail";
 
 export default function Sessions() {
   const [visible, setVisible] = useState(false);
   const [modalNum, setModalNum] = useState("");
-  const modalRef = useRef<HTMLDivElement>(null);
   return (
     <ModalProvider>
       <Modal
         url={modalNum}
         visible={visible}
-        onClose={(e: any) => {
-          if (modalRef.current === e.target) {
-            setVisible(false);
-          }
+        onClose={() => {
+          setVisible(false);
         }}
-        modalRef={modalRef}
       />
       <IndexPage title="WING | Sessions" description="GIST Developer Group, WING | Contents of WING's Sessions" />
       <div className={styles.main_div}>
