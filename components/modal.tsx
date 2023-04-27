@@ -18,7 +18,7 @@ export default function Modal({ url, onClose, visible }: ModalProps) {
   const [height, setHeight] = useState(0);
   const [margin, setMargin] = useState(0);
 
-  useEffect(() => {
+  const modalSizing = () => {
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
     if (windowWidth > windowHeight) {
@@ -30,6 +30,13 @@ export default function Modal({ url, onClose, visible }: ModalProps) {
       setHeight(windowWidth * 0.8 * 1.414);
       setMargin((windowHeight - windowWidth * 0.8 * 1.414) / 2);
     }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", modalSizing);
+    return () => {
+      window.removeEventListener("resize", modalSizing);
+    };
   }, []);
 
   return (
