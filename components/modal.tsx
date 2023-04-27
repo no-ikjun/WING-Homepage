@@ -33,6 +33,7 @@ export default function Modal({ url, onClose, visible }: ModalProps) {
   };
 
   useEffect(() => {
+    modalSizing();
     window.addEventListener("resize", modalSizing);
     return () => {
       window.removeEventListener("resize", modalSizing);
