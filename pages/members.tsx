@@ -1,14 +1,44 @@
 import styles from "./modules/Detail.module.css";
 import Profile from "@/components/profile";
-import { useTheme } from "next-themes";
 import IndexPage from "@/components/Head";
+import axios from "axios";
+
+interface memberData {
+  name: string;
+  email: string;
+  skill: string;
+  role: string;
+  link: string;
+  team: string;
+}
 
 export default function Members() {
-  const { theme, setTheme } = useTheme();
+  async function test(data: memberData) {
+    await axios
+      .post("/api/members", { name: data.name, email: data.email, skill: data.skill, role: data.role, link: data.link, team: data.team })
+      .then((res: any) => {
+        console.log(res);
+      })
+      .catch((err: any) => {
+        console.log(err);
+      });
+  }
+
+  function good() {
+    test({
+      name: "최익준",
+      email: "ikjunchoi_ug@gm.gist.ac.kr",
+      skill: "現 GIST 집행위 정보국 백엔드 개발자, 前 교내 학생커뮤니티 개발팀장",
+      role: "FE",
+      link: "github.com, velog.com, jshsus.kr",
+      team: "junior",
+    });
+  }
   return (
     <>
       <IndexPage title="WING | Members" description="GIST Developer Group, WING | WING's Members" />
       <div className={styles.main_div}>
+        <button onClick={good}>good</button>
         <div className={styles.container}>
           <div className={styles.title_div}>
             <h1 className={styles.main_title}>Members</h1>
