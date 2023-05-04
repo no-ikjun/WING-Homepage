@@ -58,7 +58,7 @@ export default function Members() {
     <>
       <IndexPage title="WING | Members" description="GIST Developer Group, WING | WING's Members" />
       <div className={styles.main_div}>
-        <button onClick={Members}>good</button>
+        <button onClick={getMembers}>good</button>
         <div className={styles.container}>
           <div className={styles.title_div}>
             <h1 className={styles.main_title}>Members</h1>
