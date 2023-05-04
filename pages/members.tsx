@@ -25,7 +25,7 @@ export default function Members() {
       });
   }
 
-  async function test(data: memberData) {
+  async function createMembers(data: memberData) {
     await axios
       .post("/api/members", { name: data.name, email: data.email, skill: data.skill, role: data.role, link: data.link, team: data.team })
       .then((res: any) => {
@@ -36,8 +36,8 @@ export default function Members() {
       });
   }
 
-  function good() {
-    test({
+  function create() {
+    createMembers({
       name: "최익준",
       email: "ikjunchoi_ug@gm.gist.ac.kr",
       skill: "現 GIST 집행위 정보국 백엔드 개발자, 前 교내 학생커뮤니티 개발팀장",
@@ -51,6 +51,7 @@ export default function Members() {
       <IndexPage title="WING | Members" description="GIST Developer Group, WING | WING's Members" />
       <div className={styles.main_div}>
         <button onClick={getMembers}>good</button>
+        <button onClick={create}>create</button>
         <div className={styles.container}>
           <div className={styles.title_div}>
             <h1 className={styles.main_title}>Members</h1>

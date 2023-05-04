@@ -24,8 +24,8 @@ const getMembers = async (req: NextApiRequest, res: NextApiResponse) => {
 const addMember = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { name, email, skill, role, link, team } = req.body;
-    const results = await sql`INSERT INTO members (name, email, skill, role, link, team) VALUES (${name}, ${email}, ${skill}, ${role}, ${link}, ${team});`;
-    return res.status(200).json({ ...req.body });
+    const result = await sql`INSERT INTO members (name, email, skill, role, link, team) VALUES (${name}, ${email}, ${skill}, ${role}, ${link}, ${team});`;
+    return res.status(200).json({ result });
   } catch (err: any) {
     return res.status(500).json({ err });
   }
