@@ -15,22 +15,9 @@ interface memberData {
 }
 
 export default function Members() {
-  let data;
-  let startTime = Date.now();
   async function getMembers() {
-    try {
-      data = await sql`SELECT * FROM members`;
-    } catch (e: any) {
-      if (e.message === `relation "members" does not exist`) {
-        console.log("Table does not exist, creating and seeding it with dummy data now...");
-        // Table is not created yet
-        await seed();
-        startTime = Date.now();
-        data = await sql`SELECT * FROM membres`;
-      } else {
-        throw e;
-      }
-    }
+    const { rows } = await sql`SELECT * FROM members`;
+    console.log(rows);
   }
 
   async function test(data: memberData) {
