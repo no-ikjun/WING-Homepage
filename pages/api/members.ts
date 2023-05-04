@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { db } from "../../common/config/db/db";
+import { sql } from "@vercel/postgres";
 
 export default async function test(req: NextApiRequest, res: NextApiResponse) {
   switch (req.method) {
@@ -14,8 +14,8 @@ export default async function test(req: NextApiRequest, res: NextApiResponse) {
 
 const getMembers = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const results = await db.query("SELECT * FROM members");
-    return res.status(200).json(results);
+    const { rows } = await sql`SELECT * FROM members`;
+    return res.status(200).json(rows);
   } catch (err: any) {
     return res.status(500).json({ err });
   }
@@ -24,7 +24,7 @@ const getMembers = async (req: NextApiRequest, res: NextApiResponse) => {
 const addMember = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { name, email, skill, role, link, team } = req.body;
-    const results = await db.query("INSERT INTO members (name, email, skill, role, link, team) VALUES (?, ?, ?, ?, ?, ?)", [name, email, skill, role, link, team]);
+    const results = await sql`INSERT INTO members (name, email, skill, role, link, team) VALUES (${name}, ${email}, ${skill}, ${role}, ${link}, ${team});`;
     return res.status(200).json({ ...req.body });
   } catch (err: any) {
     return res.status(500).json({ err });

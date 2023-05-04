@@ -1,9 +1,8 @@
 import styles from "./modules/Detail.module.css";
 import Profile from "@/components/profile";
 import IndexPage from "@/components/Head";
+import test from "./api/members";
 import axios from "axios";
-import { sql } from "@vercel/postgres";
-import { seed } from "./api/seed";
 
 interface memberData {
   name: string;
@@ -16,8 +15,14 @@ interface memberData {
 
 export default function Members() {
   async function getMembers() {
-    const { rows } = await sql`SELECT * FROM members`;
-    console.log(rows);
+    const response = await axios
+      .get("/api/members")
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   async function test(data: memberData) {
