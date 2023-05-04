@@ -21,7 +21,7 @@ export default function Members() {
     try {
       data = await sql`SELECT * FROM members`;
     } catch (e: any) {
-      if (e.message === `relation "users" does not exist`) {
+      if (e.message === `relation "members" does not exist`) {
         console.log("Table does not exist, creating and seeding it with dummy data now...");
         // Table is not created yet
         await seed();
