@@ -2,6 +2,8 @@ import styles from "./modules/Detail.module.css";
 import Profile from "@/components/profile";
 import IndexPage from "@/components/Head";
 import axios from "axios";
+import { sql } from "@vercel/postgres";
+import { seed } from "./api/seed";
 
 interface memberData {
   name: string;
@@ -13,6 +15,24 @@ interface memberData {
 }
 
 export default function Members() {
+  let data;
+  let startTime = Date.now();
+  async function getMembers() {
+    try {
+      data = await sql`SELECT * FROM members`;
+    } catch (e: any) {
+      if (e.message === `relation "users" does not exist`) {
+        console.log("Table does not exist, creating and seeding it with dummy data now...");
+        // Table is not created yet
+        await seed();
+        startTime = Date.now();
+        data = await sql`SELECT * FROM membres`;
+      } else {
+        throw e;
+      }
+    }
+  }
+
   async function test(data: memberData) {
     await axios
       .post("/api/members", { name: data.name, email: data.email, skill: data.skill, role: data.role, link: data.link, team: data.team })
@@ -38,7 +58,7 @@ export default function Members() {
     <>
       <IndexPage title="WING | Members" description="GIST Developer Group, WING | WING's Members" />
       <div className={styles.main_div}>
-        <button onClick={good}>good</button>
+        <button onClick={Members}>good</button>
         <div className={styles.container}>
           <div className={styles.title_div}>
             <h1 className={styles.main_title}>Members</h1>
