@@ -1,8 +1,8 @@
 import styles from "./modules/Detail.module.css";
 import Profile from "@/components/profile";
 import IndexPage from "@/components/Head";
-import test from "./api/members";
 import axios from "axios";
+import { useState, useEffect, memo } from "react";
 
 interface memberData {
   name: string;
@@ -11,12 +11,18 @@ interface memberData {
   role: string;
   link: string;
   team: string;
+  profile: string;
 }
 
-export default function Members() {
-  async function getMembers() {
-    const response = await axios
-      .get("/api/members")
+interface membersProps {
+  juniors: Array<memberData>;
+}
+
+export default function Members({ juniors }: membersProps) {
+  const [juniorData, setJuniorData] = useState<memberData[]>([]);
+  async function getMembers(team: string) {
+    await axios
+      .get(`/api/members?team=${team}`)
       .then((res) => {
         console.log(res);
       })
@@ -27,7 +33,7 @@ export default function Members() {
 
   async function createMembers(data: memberData) {
     await axios
-      .post("/api/members", { name: data.name, email: data.email, skill: data.skill, role: data.role, link: data.link, team: data.team })
+      .post("/api/members", { name: data.name, email: data.email, skill: data.skill, role: data.role, link: data.link, team: data.team, profile: data.profile })
       .then((res: any) => {
         console.log(res);
       })
@@ -36,22 +42,13 @@ export default function Members() {
       });
   }
 
-  function create() {
-    createMembers({
-      name: "최익준",
-      email: "ikjunchoi_ug@gm.gist.ac.kr",
-      skill: "現 GIST 집행위 정보국 백엔드 개발자, 前 교내 학생커뮤니티 개발팀장",
-      role: "FE",
-      link: "github.com, velog.com, jshsus.kr",
-      team: "junior",
-    });
-  }
+  useEffect(() => {
+    setJuniorData(juniors);
+  }, [juniors]);
   return (
     <>
       <IndexPage title="WING | Members" description="GIST Developer Group, WING | WING's Members" />
       <div className={styles.main_div}>
-        <button onClick={getMembers}>good</button>
-        <button onClick={create}>create</button>
         <div className={styles.container}>
           <div className={styles.title_div}>
             <h1 className={styles.main_title}>Members</h1>
@@ -113,31 +110,9 @@ export default function Members() {
             <div className={styles.right_div}>
               <div className={styles.junior_div}>
                 <h2 className={styles.member_title}>Junior</h2>
-                <Profile
-                  id={1}
-                  name="최익준"
-                  email="ikjunchoi_ug@gm.gist.ac.kr"
-                  skill={["現 GIST 집행위 정보국 백엔드 개발자", "前 교내 학생커뮤니티 개발팀장"]}
-                  role="FE"
-                  link={["github,https://github.com/no-ikjun", "velog,https://velog.io/@choi041101", "else,https://jshsus.kr"]}
-                />
-                <Profile
-                  id={2}
-                  name="이예빈"
-                  email="leeyebeen_ug@gm.gist.ac.kr"
-                  skill={["現 GIST 집행위 정보국 프론트엔드 개발자"]}
-                  role="FE"
-                  link={["github,https://github.com", "instagram,https://instagram.com/"]}
-                />
-                <Profile
-                  id={3}
-                  name="오다현"
-                  email="o_dahyun@gm.gist.ac.kr"
-                  skill={["現 (주)시고르자브종 백엔드 개발자", "現 GIST 집행위 정보국 백엔드 개발자"]}
-                  role="BE"
-                  link={["github,https://github.com/controlZ"]}
-                />
-                <Profile id={4} name="박시원" email="----@gm.gist.ac.kr" skill={["現 GIST 집행위 정보국 백엔드 개발자", "現 REGO 백엔드 개발자"]} role="BE" link={["github,https://github.com"]} />
+                {juniorData.map((item: memberData) => {
+                  return <Profile id={Number(item.profile)} name={item.name} email={item.email} skill={item.skill.split(", ")} role={item.role} link={item.link.split("&&")} key={item.profile} />;
+                })}
               </div>
               <div className={styles.ai_div}>
                 <h2 className={styles.member_title}>AI Team</h2>
@@ -167,3 +142,10 @@ export default function Members() {
     </>
   );
 }
+
+export const getServerSideProps = async (): Promise<{ props: membersProps }> => {
+  const res = await axios.get("/api/members?team=junior");
+  const juniors = res.data;
+  console.log(juniors);
+  return { props: { juniors: juniors } };
+};

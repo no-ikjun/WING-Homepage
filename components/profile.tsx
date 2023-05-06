@@ -23,6 +23,7 @@ export default function Profile({ id, name, email, skill, role, link }: ProfileP
         </h3>
         <span className={styles.member_link}>
           {link.map((url: string) => {
+            if (url === "") return null;
             let url_link = url.split(",")[0];
             let url_name = url.split(",")[1];
             return (
