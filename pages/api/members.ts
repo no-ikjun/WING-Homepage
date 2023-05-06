@@ -15,7 +15,7 @@ export default async function test(req: NextApiRequest, res: NextApiResponse) {
 const getMembers = async (req: NextApiRequest, res: NextApiResponse) => {
   const team = JSON.stringify(req.query.team).slice(1, -1);
   try {
-    const { rows } = await sql`SELECT * FROM members WHERE team=${team} order by id asc;`;
+    const { rows } = await sql`SELECT * FROM members where team=${team} order by id asc;`;
     return res.status(200).json(rows);
   } catch (err: any) {
     return res.status(500).json({ err });
