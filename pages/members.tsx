@@ -89,11 +89,11 @@ export default function Members({ seniors, juniors, ais }: membersProps) {
 }
 
 export const getServerSideProps = async (): Promise<{ props: any }> => {
-  const seniort_res = await axios.get("http://localhost:3000/api/members?team=senior");
+  const seniort_res = await axios.get(`https://wing-homepage.vercel.app/api/members?team=senior`);
   const seniors: membersProps = seniort_res.data;
-  const junior_res = await axios.get("http://localhost:3000/api/members?team=junior");
+  const junior_res = await axios.get("https://wing-homepage.vercel.app/api/members?team=junior");
   const juniors: membersProps = junior_res.data;
-  const ai_res = await axios.get("http://localhost:3000/api/members?team=ai");
+  const ai_res = await axios.get("https://wing-homepage.vercel.app/api/members?team=ai");
   const ais: membersProps = ai_res.data;
   return { props: { seniors: seniors, juniors: juniors, ais: ais } };
 };
