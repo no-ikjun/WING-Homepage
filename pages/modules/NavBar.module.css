@@ -243,3 +243,17 @@
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .logo_ment {
+    display: none;
+  }
+  .link {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 18px;
+  }
+  .nav_right {
+    margin-right: 0;
+  }
+}
