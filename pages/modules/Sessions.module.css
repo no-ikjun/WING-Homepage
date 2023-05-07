@@ -153,6 +153,7 @@
   font-size: 17px;
   color: #a8a8a8;
   text-decoration: underline;
+  font-family: sans-serif;
 }
 .form_link:hover {
   color: #999999;
