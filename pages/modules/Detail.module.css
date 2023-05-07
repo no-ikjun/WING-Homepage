@@ -109,6 +109,7 @@
 .member_info_div {
   width: calc(100%-20px);
   display: flex;
+  flex-direction: row;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px 2px;
   border-radius: 10px;
   background-color: #ffffff;
@@ -213,5 +214,13 @@
     width: calc(100% - 40px);
     margin-left: 20px;
     margin-right: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .member_info_div {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
   }
 }
