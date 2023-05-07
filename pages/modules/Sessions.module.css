@@ -276,8 +276,19 @@
     margin-bottom: 40px;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
   .session_info_detail_ment {
     display: none;
+  }
+  .sessions {
+    margin-top: 30px;
+  }
+  .sessions_content {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .form_link {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
