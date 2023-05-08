@@ -47,7 +47,7 @@ export default function Modal({ url, onClose, visible }: ModalProps) {
           창 닫기 ☓
         </div>
         <div className={styles.modal_body}>
-          <Image src={`/${url}_session.webp`} alt="modal-img" width={width} height={height} className={styles.modal_img} style={{ marginTop: margin }} />
+          <Image src={`/sessions/${url}.webp`} alt="modal-img" width={width} height={height} className={styles.modal_img} style={{ marginTop: margin }} />
         </div>
       </div>
     </>
