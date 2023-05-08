@@ -23,7 +23,6 @@ const getSessions = async (req: NextApiRequest, res: NextApiResponse) => {
     }
   } else {
     const temp_order = JSON.stringify(order).slice(1, -1);
-    console.log(temp_order);
     try {
       const { rows } = await sql`SELECT * FROM sessions where id=${temp_order};`;
       return res.status(200).json(rows);

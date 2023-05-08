@@ -6,8 +6,26 @@ import Modal from "@/components/modal";
 import { useEffect, useRef, useState } from "react";
 import { ModalProvider, useModal } from "@/components/ModalContext";
 import SessionDetail from "@/components/sessionDetail";
+import axios from "axios";
 
-export default function Sessions() {
+interface SessionData {
+  count: string;
+  datetime: string;
+  place: string;
+  participant: string;
+  description: string;
+}
+
+interface SessionProps {
+  session_data: Array<SessionData>;
+}
+
+export default function Sessions({ session_data }: SessionProps) {
+  const [sessions, setSessions] = useState<SessionData[]>([]);
+  useEffect(() => {
+    setSessions(session_data);
+    console.log(session_data);
+  }, [session_data]);
   const [visible, setVisible] = useState(false);
   const [modalNum, setModalNum] = useState("");
   return (
@@ -65,32 +83,27 @@ export default function Sessions() {
               <h2 className={[styles.sessions_title, styles.intro_left].join(" ")} style={{ marginTop: 25 }}>
                 WING Session History
               </h2>
-              <SessionDetail
-                url="1"
-                event={() => {
-                  setVisible(true);
-                  setModalNum("1");
-                }}
-                title="1st Open Session"
-                ment1="WING의 첫 번째 세션이 시작되었습니다!"
-                ment2="React 기초부터 전문 백엔드 개발 지식까지 다양한 기술을 다루었습니다."
-                date="2023년 3월 24일 (금) 19:00 ~ 21:00"
-                location="GIST 학사기숙사 B동 1층 해동학술정보실"
-                member={["FE : 이예빈, 박시원, 최익준", "BE : 오다현, 김선규, 정재홍"]}
-              />
-              <SessionDetail
-                url="2"
-                event={() => {
-                  setVisible(true);
-                  setModalNum("2");
-                }}
-                title="2nd Open Session"
-                ment1="WING의 두 번째 세션입니다!"
-                ment2="프론트엔드 위주의 기술 발표와 함께, 처음으로 AI 세션이 진행되었습니다!"
-                date="2023년 4월 7일(금) 19:00 - 22:00"
-                location="GIST 학사기숙사 B동 1층 해동학술정보실"
-                member={["FE : 이예빈, 최익준, 이보성, 고도현", "AI : 이준명"]}
-              />
+              {sessions.map((item: SessionData) => {
+                const ment1 = item.description.split("&&")[0];
+                const ment2 = item.description.split("&&")[1];
+                const member = item.participant.split("&&");
+                return (
+                  <SessionDetail
+                    url={item.count}
+                    event={() => {
+                      setVisible(true);
+                      setModalNum(`${item.count}`);
+                    }}
+                    key={item.count}
+                    title={`${item.count} Open Session`}
+                    ment1={ment1}
+                    ment2={ment2}
+                    date={item.datetime}
+                    location={item.place}
+                    member={member}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>
@@ -98,3 +111,9 @@ export default function Sessions() {
     </ModalProvider>
   );
 }
+
+export const getStaticProps = async (): Promise<{ props: any }> => {
+  const res = await axios.get(`https://wing-homepage.vercel.app/api/sessions`);
+  const session_data = res.data;
+  return { props: { session_data } };
+};

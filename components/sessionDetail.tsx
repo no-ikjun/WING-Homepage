@@ -18,13 +18,13 @@ export default function SessionDetail({ url, event, title, ment1, ment2, date, l
     <div className={styles.sessions_history_div}>
       <h3 className={styles.session_title}>
         {title}
-        <Link href={`/sessions/${url}`} className={styles.session_title_sub}>
+        <Link href={`/sessions/${url.slice(0, -2)}`} className={styles.session_title_sub}>
           자세히 보기 →
         </Link>
       </h3>
       <div className={styles.session_info}>
         <Image
-          src={`/${url}_session.webp`}
+          src={`/sessions/${url}.webp`}
           alt="poster"
           width={170}
           height={250}
