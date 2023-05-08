@@ -1,5 +1,5 @@
 import IndexPage from "@/components/Head";
-import styles from "./modules/Sessions.module.css";
+import styles from "../modules/Sessions.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import Modal from "@/components/modal";
