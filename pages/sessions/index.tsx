@@ -24,7 +24,6 @@ export default function Sessions({ session_data }: SessionProps) {
   const [sessions, setSessions] = useState<SessionData[]>([]);
   useEffect(() => {
     setSessions(session_data);
-    console.log(session_data);
   }, [session_data]);
   const [visible, setVisible] = useState(false);
   const [modalNum, setModalNum] = useState("");

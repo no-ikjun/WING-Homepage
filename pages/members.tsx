@@ -24,27 +24,6 @@ export default function Members({ seniors, juniors, ais }: membersProps) {
   const [juniorData, setJuniorData] = useState<memberData[]>([]);
   const [seniorData, setSeniorData] = useState<memberData[]>([]);
   const [aiData, setAiData] = useState<memberData[]>([]);
-  async function getMembers(team: string) {
-    await axios
-      .get(`/api/members?team=${team}`)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-  async function createMembers(data: memberData) {
-    await axios
-      .post("/api/members", { name: data.name, email: data.email, skill: data.skill, role: data.role, link: data.link, team: data.team, profile: data.profile })
-      .then((res: any) => {
-        console.log(res);
-      })
-      .catch((err: any) => {
-        console.log(err);
-      });
-  }
 
   useEffect(() => {
     setJuniorData(juniors);
