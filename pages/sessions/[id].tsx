@@ -36,16 +36,16 @@ export default function SessionDetail({ session_data }: sessionProps) {
 }
 
 export async function getStaticPaths() {
-  const res = await axios.get(`https://wing-homepage.vercel.app/api/sessions`);
-  const allPostsData = await res.data;
-  const paths = allPostsData.map((post: any) => ({
+  //const res = await axios.get(`https://wing-homepage.vercel.app/api/sessions`);
+  //onst allPostsData = res.data;
+  /*const paths = allPostsData.map((post: any) => ({
     params: {
       id: post.id,
     },
   }));
-
+  */
   return {
-    paths,
+    paths: [{ params: { id: "1" } }, { params: { id: "2" } }],
     fallback: false,
   };
 }
