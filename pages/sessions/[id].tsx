@@ -52,7 +52,7 @@ export async function getStaticPaths() {
 
 export const getStaticProps = async ({ params }: any) => {
   const id = params?.id as string;
-  const res = await axios.get(`https://wing-homepage.vercel.app/api/sessions/${id}`);
+  const res = await axios.get(`/api/sessions/${id}`);
   const session_data = res.data;
   return { props: { session_data } };
 };
