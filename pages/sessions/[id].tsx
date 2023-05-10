@@ -35,9 +35,24 @@ export default function SessionDetail({ session_data }: sessionProps) {
   );
 }
 
+export async function getStaticPaths() {
+  const res = await axios.get(`https://wing-homepage.vercel.app/api/sessions`);
+  const allPostsData = await res.data;
+  const paths = allPostsData.map((post: any) => ({
+    params: {
+      id: post.id,
+    },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
 export const getStaticProps = async ({ query }: any) => {
   const id = query?.id as string;
-  const res = await axios.get(`https://wing-api.vercel.app/api/sessions/${id}`);
+  const res = await axios.get(`https://wing-homepage.vercel.app/api/sessions/${id}`);
   const session_data = res.data;
   return { props: { session_data } };
 };
