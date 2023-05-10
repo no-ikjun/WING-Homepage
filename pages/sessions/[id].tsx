@@ -26,7 +26,7 @@ export default function SessionDetail({ session_data }: sessionProps) {
       <div className={styles.main_div}>
         <div className={styles.container}>
           <div className={styles.title_div}>
-            <h1 className={styles.main_title}>Session</h1>
+            <h1 className={styles.main_title}>{session_data[0].count} Open Session</h1>
             <span className={styles.sub_title}>from WING</span>
           </div>
         </div>
