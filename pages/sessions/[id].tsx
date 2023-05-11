@@ -20,6 +20,16 @@ export default function SessionDetail({ session_data }: sessionProps) {
   const router = useRouter();
   const { id } = router.query;
   console.log(session_data);
+  async function getId() {
+    const id_res = await axios.get(`https://wing-homepage.vercel.app/api/sessions`);
+    const allPostData = id_res.data;
+    const paths = allPostData.map((post: any) => {
+      console.log(post);
+    });
+  }
+  useEffect(() => {
+    getId();
+  }, []);
   return (
     <div>
       <IndexPage title="WING | Sessions" description="GIST Developer Group, WING | Contents of WING's Sessions" />
@@ -45,7 +55,7 @@ export async function getStaticPaths() {
   }));
 
   return {
-    paths: paths,
+    paths: [{ params: { id: "1" } }, { params: { id: "2" } }],
     fallback: false,
   };
 }
