@@ -56,7 +56,7 @@ export async function getStaticPaths() {
   console.log(formData);
 
   return {
-    paths: [{ params: { id: "1" } }, { params: { id: "2" } }],
+    paths: formData.paths,
     fallback: false,
   };
 }
