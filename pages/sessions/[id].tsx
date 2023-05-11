@@ -23,13 +23,14 @@ export default function SessionDetail({ session_data }: sessionProps) {
   async function getId() {
     const id_res = await axios.get(`https://wing-homepage.vercel.app/api/sessions`);
     const allPostData = id_res.data;
-    const paths = allPostData.map((post: any) => {
-      console.log(post);
-    });
+    const formData: { paths: { params: { id: number } }[] } = {
+      paths: allPostData.map((post: { id: any }): any => ({ params: { id: post.id } })),
+    };
+    console.log(formData);
   }
   useEffect(() => {
     getId();
-  }, []);
+  });
   return (
     <div>
       <IndexPage title="WING | Sessions" description="GIST Developer Group, WING | Contents of WING's Sessions" />
@@ -48,12 +49,14 @@ export default function SessionDetail({ session_data }: sessionProps) {
 export async function getStaticPaths() {
   const res = await axios.get(`https://wing-homepage.vercel.app/api/sessions`);
   const allPostsData = res.data;
-  const formData: { paths: { params: { id: number } }[] } = {
-    paths: allPostsData.map((post: { id: any }): any => ({ params: { id: post.id } })),
-  };
+  const paths = allPostsData.map((post: any) => ({
+    params: {
+      id: post.id,
+    },
+  }));
 
   return {
-    formData,
+    paths: [{ params: { id: "1" } }, { params: { id: "2" } }],
     fallback: false,
   };
 }
