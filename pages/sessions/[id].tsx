@@ -53,7 +53,7 @@ export async function getStaticPaths() {
   };
 
   return {
-    paths: formData.paths,
+    formData,
     fallback: false,
   };
 }
