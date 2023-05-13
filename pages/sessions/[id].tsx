@@ -20,25 +20,25 @@ export default function SessionDetail({ session_data }: sessionProps) {
   const router = useRouter();
   const { id } = router.query;
   console.log(session_data);
-  async function getId() {
-    const id_res = await axios.get(`https://wing-homepage.vercel.app/api/sessions`);
-    const allPostData = id_res.data;
-    const formData: { paths: { params: { id: number } }[] } = {
-      paths: allPostData.map((post: { id: any }): any => ({ params: { id: post.id } })),
-    };
-    console.log(formData);
-  }
-  useEffect(() => {
-    getId();
-  });
   return (
     <div>
       <IndexPage title="WING | Sessions" description="GIST Developer Group, WING | Contents of WING's Sessions" />
       <div className={styles.main_div}>
         <div className={styles.container}>
           <div className={styles.title_div}>
-            <h1 className={styles.main_title}>{session_data[0].count} Open Session</h1>
+            <h1 className={styles.main_title}>{session_data[0].count} Session</h1>
             <span className={styles.sub_title}>from WING</span>
+          </div>
+          <div className={styles.detail_div}>
+            <h1 className={styles.detail_title}>진행 일정</h1>
+            <hr className={styles.detail_line} />
+            <p className={styles.detail_content}>일시 : {session_data[0].datetime}</p>
+            <p className={styles.detail_content}>장소 : {session_data[0].place}</p>
+          </div>
+          <div className={styles.detail_div}>
+            <h1 className={styles.detail_title}>세션 주제</h1>
+            <hr className={styles.detail_line} />
+            <h2>FE 기깔나게 시작하기</h2>
           </div>
         </div>
       </div>
@@ -52,8 +52,6 @@ export async function getStaticPaths() {
   const formData: { paths: { params: { id: string } }[] } = {
     paths: allPostsData.map((post: { id: any }): any => ({ params: { id: String(post.id) } })),
   };
-
-  console.log(formData);
 
   return {
     paths: formData.paths,

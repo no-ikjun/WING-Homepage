@@ -8,7 +8,7 @@
 }
 .container {
   width: 80%;
-  max-width: 1400px;
+  max-width: 1000px;
   align-items: center;
 }
 .title_div {
@@ -52,4 +52,31 @@
   100% {
     opacity: 1;
   }
+}
+
+.detail_div {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+.detail_title {
+  font-size: 27px;
+  font-weight: 600;
+  color: #333;
+  font-family: sans-serif;
+  width: fit-content;
+  margin-bottom: 0;
+}
+[data-theme="dark"] .detail_title {
+  color: #f8f8f8;
+}
+.detail_line {
+  height: 1px;
+  background-color: #aaaaaa;
+  border: none;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.detail_content {
+  font-size: 16px;
+  margin: 10px 0 10px 0;
 }
