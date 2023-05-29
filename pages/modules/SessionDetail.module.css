@@ -60,6 +60,7 @@
 }
 .detail_title {
   font-size: 27px;
+  font-family: sans-serif;
   font-weight: 600;
   color: #333;
   font-family: sans-serif;
@@ -71,7 +72,7 @@
 }
 .detail_line {
   height: 1px;
-  background-color: #aaaaaa;
+  background-color: #c5c5c5;
   border: none;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -79,4 +80,45 @@
 .detail_content {
   font-size: 16px;
   margin: 10px 0 10px 0;
+  font-family: sans-serif;
+}
+.session_title {
+  font-size: 22px;
+  font-family: sans-serif;
+  font-weight: 600;
+  color: #333;
+  font-family: sans-serif;
+  width: fit-content;
+  margin: 0;
+  padding: 3px;
+  margin-top: 10px;
+}
+[data-theme="dark"] .session_title {
+  color: #f8f8f8;
+}
+.session_participant {
+  display: inline-flex;
+  width: 100%;
+  overflow-x: auto;
+}
+.participant_profile_div {
+  margin: 5px 5px 5px 10px;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  word-break: keep-all;
+  align-items: center;
+}
+.profile_photo_div {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.profile_name {
+  margin-left: 5px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  font-family: sans-serif;
 }

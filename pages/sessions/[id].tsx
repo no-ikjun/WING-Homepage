@@ -3,6 +3,7 @@ import IndexPage from "@/components/Head";
 import styles from "../modules/SessionDetail.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 interface sessionData {
   count: string;
@@ -38,7 +39,15 @@ export default function SessionDetail({ session_data }: sessionProps) {
           <div className={styles.detail_div}>
             <h1 className={styles.detail_title}>세션 주제</h1>
             <hr className={styles.detail_line} />
-            <h2>FE 기깔나게 시작하기</h2>
+            <h2 className={styles.session_title}>FE 기깔나게 시작하기 (25min)</h2>
+            <div className={styles.session_participant}>
+              <div className={styles.participant_profile_div}>
+                <div className={styles.profile_photo_div}>
+                  <Image alt="profile" src={"/profile/profile_1.webp"} width={30} height={30} />
+                </div>
+              </div>
+              <span className={styles.profile_name}>최익준</span>
+            </div>
           </div>
         </div>
       </div>
