@@ -107,6 +107,10 @@ export default function Sessions({ session_data }: SessionProps) {
           </div>
         </div>
       </div>
+      <figure className={styles.notification}>
+        <div className={styles.notification_body}>Your account has been created! &#128640;</div>
+        <div className={styles.notification_progress}></div>
+      </figure>
     </ModalProvider>
   );
 }
